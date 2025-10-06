@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Home, BarChart2, Users, Lock } from "lucide-react"
+import { Home, BarChart2, Users, Lock, CheckCircle } from "lucide-react"
 
 interface SidebarProps {
   activePage: string
@@ -66,6 +66,19 @@ export function Sidebar({ activePage }: SidebarProps) {
             >
               <Users className="w-5 h-5 mr-3" />
               <span className={activePage === "participants" ? "font-medium" : ""}>Participants</span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/checkin"
+              className={`flex items-center px-6 py-3 transition-smooth rounded-r-xl ${
+                activePage === "checkin"
+                  ? "text-black bg-gray-100 border-l-4 border-gray-300 shadow-modern"
+                  : "text-gray-600 hover:bg-gray-50 hover:text-black"
+              }`}
+            >
+              <CheckCircle className="w-5 h-5 mr-3" />
+              <span className={activePage === "checkin" ? "font-medium" : ""}>Check-In</span>
             </Link>
           </li>
           <li>
