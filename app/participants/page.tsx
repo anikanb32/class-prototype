@@ -217,13 +217,10 @@ export default function ParticipantsPage() {
 
       {/* Main content */}
       <div className="flex-1 overflow-auto">
-        <div className="p-6">
+        <div className="p-6 pt-10">
           {/* Header */}
           <div className="flex justify-between items-center mb-8">
             <div>
-              <div className="text-sm text-gray-600 mb-1">
-                <span>Pages / Participants</span>
-              </div>
               <h1 className="text-3xl font-bold text-black">Participants</h1>
             </div>
             <div className="flex items-center gap-4">
@@ -232,10 +229,10 @@ export default function ParticipantsPage() {
                 <input
                   type="text"
                   placeholder="Search Participants"
-                  className="pl-10 pr-4 py-2 rounded-full glass-card border border-gray-200 w-64 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent text-black placeholder-gray-500 transition-smooth"
+                  className="pl-10 pr-4 py-2 rounded-full bg-white w-64 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent text-black placeholder-gray-500 transition-smooth"
                 />
               </div>
-              <button className="w-10 h-10 rounded-full glass-card border border-gray-200 flex items-center justify-center hover-lift transition-smooth">
+              <button className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover-lift transition-smooth">
                 <Info className="w-5 h-5 text-gray-500" />
               </button>
             </div>
@@ -248,14 +245,14 @@ export default function ParticipantsPage() {
               <div className="flex gap-2">
                 <button
                   onClick={scrollLeft}
-                  className="p-2 rounded-full glass-card border border-gray-200 text-gray-600 hover:bg-gray-50 hover:text-gray-800 hover-lift transition-smooth"
+                  className="p-2 rounded-full bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-800 hover-lift transition-smooth"
                   aria-label="Scroll left"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
                 <button
                   onClick={scrollRight}
-                  className="p-2 rounded-full glass-card border border-gray-200 text-gray-600 hover:bg-gray-50 hover:text-gray-800 hover-lift transition-smooth"
+                  className="p-2 rounded-full bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-800 hover-lift transition-smooth"
                   aria-label="Scroll right"
                 >
                   <ChevronRight className="w-5 h-5" />
@@ -272,7 +269,7 @@ export default function ParticipantsPage() {
                 {todaysAttendees.map((participant) => (
                   <div
                     key={participant.id}
-                    className="flex-shrink-0 w-[280px] glass-card rounded-2xl p-6 flex flex-col items-center relative hover-lift transition-smooth"
+                    className="flex-shrink-0 w-[280px] bg-white rounded-2xl p-6 flex flex-col items-center relative transition-smooth"
                   >
                     <button
                       onClick={() => togglePresence(participant.id)}
@@ -330,7 +327,7 @@ export default function ParticipantsPage() {
               <h2 className="text-2xl font-bold text-black">All Participants</h2>
 
               {/* Add Participant Button */}
-              <button className="flex items-center glass-card text-black py-3 px-6 rounded-full hover-lift transition-smooth border border-gray-200">
+              <button className="flex items-center bg-white text-black py-3 px-6 rounded-full hover-lift transition-smooth">
                 <span className="mr-2 font-medium">Add Participant</span>
                 <div className="bg-gray-100 rounded-full p-1">
                   <Plus className="w-5 h-5 text-black" />
@@ -338,12 +335,12 @@ export default function ParticipantsPage() {
               </button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="flex flex-wrap gap-6">
               {allParticipants.map((participant) => (
-                <div key={participant.id} className="glass-card rounded-2xl p-6 flex flex-col items-center relative hover-lift transition-smooth">
+                <div key={participant.id} className="bg-white rounded-2xl p-6 flex flex-col items-center relative transition-smooth w-[280px]">
                   <button
                     onClick={() => togglePresence(participant.id)}
-                    className="absolute top-4 right-4 bg-blue-50 p-1.5 rounded-full text-[#87CEEB] hover:bg-blue-100 hover:text-[#6BB6E0] transition-colors"
+                    className="absolute top-4 right-4 bg-green-50 p-1.5 rounded-full text-green-500 hover:bg-green-100 hover:text-green-600 transition-colors"
                     aria-label="Add to today's attendees"
                     title="Add to today's attendees"
                   >

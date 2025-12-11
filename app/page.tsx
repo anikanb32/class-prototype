@@ -212,13 +212,10 @@ export default function Dashboard() {
 
       {/* Main content */}
       <div className="flex-1 overflow-auto">
-        <div className="p-6">
+        <div className="p-6 pt-10">
           {/* Header */}
           <div className="flex justify-between items-center mb-8">
             <div>
-              <div className="text-sm text-gray-600 mb-1">
-                <span>Pages / Dashboard</span>
-              </div>
               <h1 className="text-3xl font-bold text-black">Main Dashboard</h1>
             </div>
             <div className="flex items-center gap-4">
@@ -278,7 +275,7 @@ export default function Dashboard() {
                   return (
                     <div key={activity.id} className="glass-card rounded-xl p-4 hover-lift transition-smooth border-0">
                       <div className="flex items-start justify-between mb-3">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-300 to-cyan-500 flex items-center justify-center">
+                        <div className="w-12 h-12 rounded-xl bg-[#63b7e6] flex items-center justify-center">
                           <IconComponent className="w-6 h-6 text-white" />
                         </div>
                         <div className="text-right">

@@ -45,6 +45,7 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        "checkbox-blue": "#97CCE8",
       },
       borderRadius: {
         lg: "var(--radius)",

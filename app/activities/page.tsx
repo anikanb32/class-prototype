@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect, useMemo, useRef } from "react"
-import Image from "next/image"
 import Link from "next/link"
 import {
   Search,
@@ -81,32 +80,52 @@ interface Participant {
 
 export default function ActivitiesPage() {
   // Icon mapping function
-  const getCategoryIcon = (iconName: string) => {
-    const iconProps = { className: "w-6 h-6 text-[#63b7e6]" }
-    switch (iconName) {
+  const getCategoryIcon = (iconName: string, iconColor: string = "text-[#63b7e6]") => {
+    const iconProps = { className: `w-6 h-6 ${iconColor}` }
+    switch (iconName.toLowerCase()) {
       case "memory":
         return <Brain {...iconProps} />
       case "brain":
         return <Brain {...iconProps} />
+      case "cognitive":
+        return <Brain {...iconProps} />
       case "lightbulb":
+        return <Lightbulb {...iconProps} />
+      case "executive":
         return <Lightbulb {...iconProps} />
       case "target":
         return <Target {...iconProps} />
+      case "attention":
+        return <Target {...iconProps} />
       case "message-square":
+        return <MessageSquare {...iconProps} />
+      case "language":
         return <MessageSquare {...iconProps} />
       case "hand-metal":
         return <HandMetal {...iconProps} />
+      case "motor":
+        return <HandMetal {...iconProps} />
       case "puzzle":
+        return <Puzzle {...iconProps} />
+      case "problem":
         return <Puzzle {...iconProps} />
       case "heart":
         return <Heart {...iconProps} />
+      case "emotional":
+        return <Heart {...iconProps} />
       case "users":
         return <Users {...iconProps} />
+      case "social":
+        return <Users {...iconProps} />
       case "palette":
+        return <Palette {...iconProps} />
+      case "art":
         return <Palette {...iconProps} />
       case "music":
         return <Music {...iconProps} />
       case "calculator":
+        return <Calculator {...iconProps} />
+      case "math":
         return <Calculator {...iconProps} />
       default:
         return <Brain {...iconProps} />
@@ -1139,31 +1158,63 @@ export default function ActivitiesPage() {
   const getIconBgColor = (category: string) => {
     switch (category) {
       case "Memory":
-        return "bg-gradient-to-br from-blue-300 to-cyan-500"
+        return "bg-[#63b7e6]"
       case "Cognitive":
-        return "bg-gradient-to-br from-indigo-300 to-purple-500"
+        return "bg-[#4318FF]"
       case "Executive":
-        return "bg-gradient-to-br from-green-300 to-teal-500"
+        return "bg-[#22c55e]"
       case "Attention":
-        return "bg-gradient-to-br from-orange-300 to-red-400"
+        return "bg-[#FF5733]"
       case "Language":
-        return "bg-gradient-to-br from-pink-300 to-rose-500"
+        return "bg-[#e83e8c]"
       case "Motor":
-        return "bg-gradient-to-br from-yellow-300 to-amber-500"
+        return "bg-[#ffc107]"
       case "Problem":
-        return "bg-gradient-to-br from-cyan-300 to-sky-500"
+        return "bg-[#17a2b8]"
       case "Emotional":
-        return "bg-gradient-to-br from-green-300 to-emerald-500"
+        return "bg-[#28a745]"
       case "Social":
-        return "bg-gradient-to-br from-gray-300 to-slate-500"
+        return "bg-[#6c757d]"
       case "Art":
-        return "bg-gradient-to-br from-orange-300 to-amber-500"
+        return "bg-[#fd7e14]"
       case "Music":
-        return "bg-gradient-to-br from-purple-300 to-violet-500"
+        return "bg-[#6f42c1]"
       case "Math":
-        return "bg-gradient-to-br from-teal-300 to-emerald-500"
+        return "bg-[#20c997]"
       default:
-        return "bg-gradient-to-br from-gray-300 to-gray-500"
+        return "bg-gray-400"
+    }
+  }
+
+  // Get skill icon color (text color version of background colors)
+  const getSkillIconColor = (skill: string) => {
+    switch (skill) {
+      case "Memory":
+        return "text-[#63b7e6]"
+      case "Cognitive":
+        return "text-[#4318FF]"
+      case "Executive":
+        return "text-[#22c55e]"
+      case "Attention":
+        return "text-[#FF5733]"
+      case "Language":
+        return "text-[#e83e8c]"
+      case "Motor":
+        return "text-[#ffc107]"
+      case "Problem":
+        return "text-[#17a2b8]"
+      case "Emotional":
+        return "text-[#28a745]"
+      case "Social":
+        return "text-[#6c757d]"
+      case "Art":
+        return "text-[#fd7e14]"
+      case "Music":
+        return "text-[#6f42c1]"
+      case "Math":
+        return "text-[#20c997]"
+      default:
+        return "text-gray-400"
     }
   }
 
@@ -1171,23 +1222,31 @@ export default function ActivitiesPage() {
   const getActivityIcon = (category: string) => {
     switch (category) {
       case "Memory":
-        return <Brain className="w-5 h-5" />
+        return <Brain className="w-6 h-6 text-white" />
       case "Cognitive":
-        return <Lightbulb className="w-5 h-5" />
+        return <Lightbulb className="w-6 h-6 text-white" />
       case "Executive":
-        return <Puzzle className="w-5 h-5" />
+        return <Lightbulb className="w-6 h-6 text-white" />
       case "Attention":
-        return <Search className="w-5 h-5" />
+        return <Target className="w-6 h-6 text-white" />
       case "Language":
-        return <MessageSquare className="w-5 h-5" />
+        return <MessageSquare className="w-6 h-6 text-white" />
       case "Motor":
-        return <HandMetal className="w-5 h-5" />
+        return <HandMetal className="w-6 h-6 text-white" />
       case "Problem":
-        return <Puzzle className="w-5 h-5" />
+        return <Puzzle className="w-6 h-6 text-white" />
       case "Emotional":
-        return <Heart className="w-5 h-5" />
+        return <Heart className="w-6 h-6 text-white" />
+      case "Social":
+        return <Users className="w-6 h-6 text-white" />
+      case "Art":
+        return <Palette className="w-6 h-6 text-white" />
+      case "Music":
+        return <Music className="w-6 h-6 text-white" />
+      case "Math":
+        return <Calculator className="w-6 h-6 text-white" />
       default:
-        return null
+        return <Brain className="w-6 h-6 text-white" />
     }
   }
 
@@ -1298,13 +1357,10 @@ export default function ActivitiesPage() {
 
       {/* Main content */}
       <div className="flex-1 overflow-auto">
-        <div className="p-6">
+        <div className="p-6 pt-10">
           {/* Header */}
           <div className="flex justify-between items-center mb-8">
             <div>
-              <div className="text-sm text-gray-600 mb-1">
-                <span>Pages / Activities</span>
-              </div>
               <h1 className="text-3xl font-bold text-black">Activities</h1>
             </div>
             <div className="flex items-center gap-4">
@@ -1313,10 +1369,10 @@ export default function ActivitiesPage() {
                 <input
                   type="text"
                   placeholder="Search"
-                  className="pl-10 pr-4 py-2 rounded-full glass-card border border-gray-200 w-64 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent text-black placeholder-gray-500 transition-smooth"
+                  className="pl-10 pr-4 py-2 rounded-full bg-white w-64 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent text-black placeholder-gray-500 transition-smooth"
                 />
               </div>
-              <button className="w-10 h-10 rounded-full glass-card border border-gray-200 flex items-center justify-center hover-lift transition-smooth">
+              <button className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover-lift transition-smooth">
                 <Info className="w-5 h-5 text-gray-500" />
               </button>
             </div>
@@ -1324,7 +1380,7 @@ export default function ActivitiesPage() {
 
           {/* Present Participants Summary */}
           {presentParticipants.length > 0 && (
-            <div className="glass-card rounded-xl p-4 mb-8">
+            <div className="bg-white rounded-xl p-4 mb-8">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-lg font-bold text-black">Today's Attendees</h2>
                 <Link href="/participants">
@@ -1350,7 +1406,7 @@ export default function ActivitiesPage() {
           {/* Top Row: Suggested and Recent Activities */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
             {/* Suggested Activities Section (Categories) */}
-            <div className="glass-card rounded-xl p-6">
+            <div className="bg-white rounded-xl p-6">
               {/* Header */}
               <div className="flex justify-between items-center mb-6">
                 <div>
@@ -1373,7 +1429,7 @@ export default function ActivitiesPage() {
 
               <div className="space-y-4 max-h-[300px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
                 {activityCategories.map((category) => (
-                  <div key={category.id} className="rounded-xl border border-gray-200 overflow-hidden">
+                  <div key={category.id} className="rounded-xl overflow-hidden">
                     <div
                       className="flex items-center justify-between bg-gray-50 p-4 cursor-pointer hover:bg-gray-100 transition-colors"
                       onClick={() => toggleCategoryExpansion(category.id)}
@@ -1403,12 +1459,11 @@ export default function ActivitiesPage() {
                     {/* Expanded activities */}
                     {expandedCategories[category.id] && (
                       <div className="p-4 bg-white border-t border-gray-200">
-                        <h4 className="text-sm font-medium text-gray-600 mb-3">Suggested Activities:</h4>
                         <div className="space-y-3">
                           {category.suggestedActivities.map((activity) => (
                             <div
                               key={activity.id}
-                              className="p-3 bg-gray-50 rounded-lg border border-gray-200 hover:border-[#63B7E6] transition-colors"
+                              className="p-3 bg-[#E0F1FA] rounded-xl transition-colors"
                             >
                               <div className="flex justify-between items-start mb-2">
                                 <h5 className="font-medium text-black">{activity.title}</h5>
@@ -1450,12 +1505,12 @@ export default function ActivitiesPage() {
                     .sort(([, a], [, b]) => b - a)
                     .slice(0, 6)
                     .map(([skill, percentage]) => (
-                      <div key={skill} className="flex items-center justify-between">
-                        <div className="flex items-center">
-                          <div className={`w-3 h-3 rounded-full ${getCategoryColor(skill)} mr-2`}></div>
-                          <span className="text-sm text-gray-600">{skill} Skills</span>
+                      <div key={skill} className="flex items-center gap-2">
+                        <div className="w-6 h-6 rounded-lg bg-white flex items-center justify-center">
+                          {getCategoryIcon(skill, getSkillIconColor(skill))}
                         </div>
-                        <span className="text-sm font-medium text-black">{percentage}%</span>
+                        <span className="text-sm text-gray-600">{skill} Skills</span>
+                        <span className="text-sm font-medium text-black ml-1">{percentage}%</span>
                       </div>
                     ))}
                 </div>
@@ -1473,7 +1528,7 @@ export default function ActivitiesPage() {
                 {recentActivities.map((activity) => (
                   <div
                     key={activity.id}
-                    className="flex items-center justify-between glass-card rounded-xl p-4 hover-lift transition-smooth"
+                    className="flex items-center justify-between bg-white rounded-xl p-4 hover-lift transition-smooth"
                   >
                     <div className="flex items-center flex-1 min-w-0">
                       <div
@@ -1481,13 +1536,7 @@ export default function ActivitiesPage() {
                           activity.category,
                         )} flex items-center justify-center mr-4`}
                       >
-                        <Image
-                          src={activity.icon || "/placeholder.svg"}
-                          alt=""
-                          width={24}
-                          height={24}
-                          className="object-contain"
-                        />
+                        {getActivityIcon(activity.category)}
                       </div>
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center justify-between">
@@ -1533,14 +1582,14 @@ export default function ActivitiesPage() {
                 {/* Sort Dropdown */}
                 <div className="relative" ref={sortDropdownRef}>
                   <button
-                    className="px-4 py-2 rounded-md glass-card border border-gray-200 text-gray-600 flex items-center gap-2 hover-lift transition-smooth" style={{ borderRadius: '6px' }}
+                    className="px-4 py-2 rounded-md bg-white text-gray-600 flex items-center gap-2 hover-lift transition-smooth" style={{ borderRadius: '6px' }}
                     onClick={() => setSortDropdownOpen(!sortDropdownOpen)}
                   >
                     <span>Sort: {getSortLabel()}</span>
                     <ChevronDown className="w-4 h-4" />
                   </button>
                   {sortDropdownOpen && (
-                    <div className="absolute right-0 mt-2 w-56 glass-card rounded-md shadow-lg z-10 border border-gray-200" style={{ borderRadius: '6px' }}>
+                    <div className="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg z-10" style={{ borderRadius: '6px' }}>
                       <div className="p-2">
                         <button
                           className={`w-full text-left px-3 py-2 rounded-md flex items-center justify-between ${
@@ -1597,7 +1646,7 @@ export default function ActivitiesPage() {
                     className={`px-4 py-2 rounded-md flex items-center gap-2 hover-lift transition-smooth ${
                       activeFilter
                         ? `${getCategoryColor(activeFilter)} text-white`
-                        : "glass-card border border-gray-200 text-gray-600"
+                        : "bg-white text-gray-600"
                     }`} style={{ borderRadius: '6px' }}
                     onClick={() => setCategoryDropdownOpen(!categoryDropdownOpen)}
                   >
@@ -1605,7 +1654,7 @@ export default function ActivitiesPage() {
                     <ChevronDown className="w-4 h-4" />
                   </button>
                   {categoryDropdownOpen && (
-                    <div className="absolute right-0 mt-2 w-56 glass-card rounded-md shadow-lg z-10 border border-gray-200 max-h-96 overflow-y-auto" style={{ borderRadius: '6px' }}>
+                    <div className="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg z-10 max-h-96 overflow-y-auto" style={{ borderRadius: '6px' }}>
                       <div className="p-2">
                         <button
                           className={`w-full text-left px-3 py-2 rounded-md flex items-center justify-between ${
@@ -1777,7 +1826,7 @@ export default function ActivitiesPage() {
                     className={`px-4 py-2 rounded-md flex items-center gap-2 hover-lift transition-smooth ${
                       difficultyFilter
                         ? `${getDifficultyColor(difficultyFilter)}`
-                        : "glass-card border border-white/20 text-gray-600"
+                        : "bg-white text-gray-600"
                     }`} style={{ borderRadius: '6px' }}
                     onClick={() => setDifficultyDropdownOpen(!difficultyDropdownOpen)}
                   >
@@ -1785,7 +1834,7 @@ export default function ActivitiesPage() {
                     <ChevronDown className="w-4 h-4" />
                   </button>
                   {difficultyDropdownOpen && (
-                    <div className="absolute right-0 mt-2 w-48 glass-card rounded-md shadow-lg z-10 border border-white/20" style={{ borderRadius: '6px' }}>
+                    <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10" style={{ borderRadius: '6px' }}>
                       <div className="p-2">
                         <button
                           className={`w-full text-left px-3 py-2 rounded-md flex items-center justify-between ${
@@ -1842,7 +1891,7 @@ export default function ActivitiesPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredActivities.map((activity) => (
                 <Link href={`/activities/${activity.id}`} key={activity.id}>
-                  <div className="glass-card rounded-xl overflow-hidden hover-lift transition-smooth">
+                  <div className="bg-white rounded-xl overflow-hidden hover-lift transition-smooth">
                     <div className="h-40 bg-gray-50 relative">
                       <div className={`absolute inset-0 ${getIconBgColor(activity.category)} opacity-20`}></div>
                       <div className="absolute top-4 right-4 flex gap-2">
@@ -1862,14 +1911,8 @@ export default function ActivitiesPage() {
                         </div>
                       </div>
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center">
-                          <Image
-                            src={activity.icon || "/placeholder.svg"}
-                            alt=""
-                            width={32}
-                            height={32}
-                            className="object-contain"
-                          />
+                        <div className={`w-16 h-16 rounded-xl ${getIconBgColor(activity.category)} flex items-center justify-center`}>
+                          {getActivityIcon(activity.category)}
                         </div>
                       </div>
                     </div>

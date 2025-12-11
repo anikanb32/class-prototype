@@ -157,14 +157,11 @@ export default function CheckInPage() {
 
       {/* Main content */}
       <div className="flex-1 overflow-auto">
-        <div className="p-6">
+        <div className="p-6 pt-10">
           {/* Header */}
           <div className="flex justify-between items-center mb-8">
             <div>
-              <div className="text-xl text-gray-600 mb-1">
-                <span>Pages / Check-In</span>
-              </div>
-              <h1 className="text-5xl font-bold text-black mt-6">{getCurrentGreeting()}</h1>
+              <h1 className="text-5xl font-bold text-black">{getCurrentGreeting()}</h1>
               <p className="text-2xl text-gray-600 mt-2">Please click on your photo to check in.</p>
             </div>
           </div>

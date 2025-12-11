@@ -8,9 +8,9 @@ interface SidebarProps {
 
 export function Sidebar({ activePage }: SidebarProps) {
   return (
-    <div className="w-64 glass border-r border-white/20 flex flex-col">
+    <div className="w-64 bg-white border-r border-gray-200 flex flex-col">
       {/* User profile */}
-      <div className="p-6 border-b border-white/20">
+      <div className="p-6 border-b border-gray-200">
         <div className="flex flex-col items-center">
           <div className="relative w-16 h-16 mb-2 rounded-full overflow-hidden">
             <Image
@@ -32,9 +32,9 @@ export function Sidebar({ activePage }: SidebarProps) {
           <li>
             <Link
               href="/"
-              className={`flex items-center px-6 py-3 transition-smooth rounded-r-xl ${
+              className={`flex items-center px-6 py-3 transition-smooth ${
                 activePage === "dashboard"
-                  ? "text-black bg-gray-100 border-l-4 border-gray-300 shadow-modern"
+                  ? "text-black bg-[#E0F1FA]"
                   : "text-gray-600 hover:bg-gray-50 hover:text-black"
               }`}
             >
@@ -45,9 +45,9 @@ export function Sidebar({ activePage }: SidebarProps) {
           <li>
             <Link
               href="/activities"
-              className={`flex items-center px-6 py-3 transition-smooth rounded-r-xl ${
+              className={`flex items-center px-6 py-3 transition-smooth ${
                 activePage === "activities"
-                  ? "text-black bg-gray-100 border-l-4 border-gray-300 shadow-modern"
+                  ? "text-black bg-[#E0F1FA]"
                   : "text-gray-600 hover:bg-gray-50 hover:text-black"
               }`}
             >
@@ -58,9 +58,9 @@ export function Sidebar({ activePage }: SidebarProps) {
           <li>
             <Link
               href="/participants"
-              className={`flex items-center px-6 py-3 transition-smooth rounded-r-xl ${
+              className={`flex items-center px-6 py-3 transition-smooth ${
                 activePage === "participants"
-                  ? "text-black bg-gray-100 border-l-4 border-gray-300 shadow-modern"
+                  ? "text-black bg-[#E0F1FA]"
                   : "text-gray-600 hover:bg-gray-50 hover:text-black"
               }`}
             >
@@ -71,9 +71,9 @@ export function Sidebar({ activePage }: SidebarProps) {
           <li>
             <Link
               href="/checkin"
-              className={`flex items-center px-6 py-3 transition-smooth rounded-r-xl ${
+              className={`flex items-center px-6 py-3 transition-smooth ${
                 activePage === "checkin"
-                  ? "text-black bg-gray-100 border-l-4 border-gray-300 shadow-modern"
+                  ? "text-black bg-[#E0F1FA]"
                   : "text-gray-600 hover:bg-gray-50 hover:text-black"
               }`}
             >
@@ -84,9 +84,9 @@ export function Sidebar({ activePage }: SidebarProps) {
           <li>
             <Link
               href="/account"
-              className={`flex items-center px-6 py-3 transition-smooth rounded-r-xl ${
+              className={`flex items-center px-6 py-3 transition-smooth ${
                 activePage === "account"
-                  ? "text-black bg-gray-100 border-l-4 border-gray-300 shadow-modern"
+                  ? "text-black bg-[#E0F1FA]"
                   : "text-gray-600 hover:bg-gray-50 hover:text-black"
               }`}
             >

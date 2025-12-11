@@ -140,15 +140,12 @@ export default function ActivitySurveyPage() {
 
       {/* Main content */}
       <div className="flex-1 overflow-auto">
-        <div className="p-6">
+        <div className="p-6 pt-10">
           {/* Header */}
           <div className="flex justify-between items-center mb-8">
             <div>
-              <div className="text-xl text-gray-600 mb-1">
-                <span>Pages / Activity Survey</span>
-              </div>
               <h1 className="text-5xl font-bold text-black">Welcome, {participantName}!</h1>
-              <p className="text-2xl text-gray-600 mt-2">Please select the activities you are interested in!</p>
+              <p className="text-2xl text-gray-600 mt-6">Please select the activities you are interested in.</p>
             </div>
             <div className="flex justify-center">
               <Image
@@ -162,7 +159,7 @@ export default function ActivitySurveyPage() {
           </div>
 
           {/* Main Survey Container */}
-          <div className="glass-card rounded-xl p-8">
+          <div className="bg-white rounded-xl p-8">
             <div className="text-center mb-8">
               <h2 className="text-4xl font-bold text-black mb-4">
                 Activity Interest Survey
@@ -203,7 +200,7 @@ export default function ActivitySurveyPage() {
                               type="checkbox"
                               checked={activity.selected}
                               onChange={() => toggleActivity(category.id, activity.id)}
-                              className="w-6 h-6 text-[#87CEEB] bg-gray-100 border-gray-300 rounded focus:ring-[#87CEEB] focus:ring-2"
+                              className="w-6 h-6 text-checkbox-blue bg-gray-100 border-gray-300 rounded focus:ring-0 focus:outline-none accent-checkbox-blue"
                             />
                             <span className="text-xl text-gray-700 font-medium">{activity.name}</span>
                           </label>
@@ -218,7 +215,7 @@ export default function ActivitySurveyPage() {
             {/* Suggest Activity */}
             <div className="mb-8">
               <div className="glass-card rounded-xl p-6">
-                <h3 className="text-3xl font-bold text-black mb-4">Suggest an Activity</h3>
+                <h3 className="text-3xl font-bold text-black mb-4">Suggest Activity</h3>
                 <div className="flex gap-3">
                   <input
                     type="text"
@@ -240,7 +237,7 @@ export default function ActivitySurveyPage() {
 
             {/* Submit Section */}
             <div className="text-center">
-              <div className="glass-card rounded-xl p-6">
+              <div className="bg-white rounded-xl p-6">
                 <p className="text-xl text-gray-600 mb-6">
                   When you are done with your selection, click submit!
                 </p>
